@@ -1,17 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Athlon / Front-end Boilerplate Template</title>
-  </head>
-  <body>
-    <header>
-      Hello, world!
-      <img src="images/content/logoa.svg" alt="Logo of Athlon" class="logo">
-    </header>
-    <main>
-      <p>Demo page illustrating building SASS, JS, Fonts, Background Images and Inline Images.</p>
-      <address>Documentation avaialable on the official <a href="https://github.com/WeAreAthlon/frontend-webpack-boilerplate/" target="_blank">GitHub Repository</a>.</address>
-    </main>
-  </body>
+    <title>Cursade Crawler</title>
+    <meta name="description" content="E-Sports Market Values ➤ Transfer ➤ news ➤ rumours ➤ statistics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="mobile-menu" id="mobile-menu">
+    <div class="visible-menu">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="25" height="25"
+                 viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
+                <circle cx="12" cy="12" r="9"></circle>
+            </svg>
+            <span>MENU</span>
+        </p>
+        <ul>
+            <li>
+                <a href="/what-is-cursade">
+
+                    <span>What is Cursade?</span>
+                </a>
+            </li>
+            <li>
+                <a href="/how-to">
+                    <span>How to use Cursade?</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="pseudo-tap" id="pseudo_tap"></div>
+</div>
+<header class="header">
+    <div class="header__left">
+        <span class="header__left__logo"><a href="">Cursade</a></span>
+    </div>
+    <div class="header__right">
+        <div class="hamburger">
+            <div class="hamburger-menu" id="hamburger">
+                <div class="hamburger-menu--center">
+                </div>
+            </div>
+        </div>
+        <ul class="header__right__list">
+            <li class="header__right__list__item">
+                <a href="/what-is-it">What is Cursade?</a>
+            </li>
+            <li class="header__right__list__item">
+                <a href="/how-to">How to use Cursade?</a>
+            </li>
+            <li class="header__right__list__item">
+                <a href="https://www.buymeacoffee.com/" target="_blank" rel="nofollow noopener" class="btn"
+                   style="display: flex; align-items: center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 6h10a1 1 0 0 1 1 1v8a4 4 0 0 1 -4 4h-4a4 4 0 0 1 -4 -4v-8a1 1 0 0 1 1 -1"/>
+                        <path d="M16 9h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2"/>
+                    </svg>
+                    <span style="margin-left: 0.25rem">Buy me a coffee</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<main class="main">
+    <div class="main__container">
+        <form class="main__container__form" action="/" method="POST">
+            <div class="main__container__form__item">
+                <label for="whycrawl" class="main__container__form__item__label">
+                    Why do you want to crawl?
+                </label>
+                <select name="whycrawl" id="whycrawl">
+                    <option value="research">Research</option>
+                    <option value="data">Data Aggregation</option>
+                    <option value="quick_info">Quick Information</option>
+                    <option value="sources">Gathering Sources</option>
+                </select>
+            </div>
+            <div class="main__container__form__item">
+                <label for="topic" class="main__container__form__item__label">
+                    What topic do you want to crawl?
+                </label>
+                <input placeholder="e.g. football players" type="text" name="topic" id="topic" required>
+            </div>
+            <div class="main__container__form__item">
+                <label for="output" class="main__container__form__item__label">
+                    What is your preferred output?
+                </label>
+                <select name="output" id="output">
+                    <option value="json">JSON</option>
+                    <option value="data">CSV</option>
+                    <option value="quick_info">XML</option>
+                    <option value="sources">doc</option>
+                    <option value="sources">MarkDown</option>
+                </select>
+            </div>
+            <div class="main__container__form__item">
+                <button type="submit" class="btn" id="cc-submit">Crawl</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
 </html>

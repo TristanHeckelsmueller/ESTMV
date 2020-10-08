@@ -1,0 +1,43 @@
+.main {
+  width: 950px;
+  max-width: 100%;
+  margin: 0 auto;
+    box-shadow: 23px 20px 59px rgba(33, 136, 91, 0.25), -20px -20px 60px rgba(35, 166, 108, 0.25);
+    padding: 3rem;
+
+  &__container {
+    text-align: center;
+    max-width: 450px;
+    margin: 0 auto;
+    &__form {
+
+      &__item {
+      margin-bottom: 3rem;
+        &__label {
+          font-size: 25px;
+        }
+        & input, & select {
+          margin-top: 1rem;
+          max-width: 100%;
+          width: 400px;
+          background: #4CD99B;
+          box-shadow: 3px 4px 18px rgba(0, 179, 100, 0.4);
+          padding: 0.5rem 1rem;
+          font-size: 18px;
+          color: #fff;
+          border: none;
+          font-weight: 100;
+          transition: 0.25s all ease;
+          &::placeholder {
+            color: #ffffff;
+          }
+          &:focus {
+            box-shadow: 6px 8px 18px rgba(94, 94, 94, 0.63);
+            border: none;
+          }
+        }
+
+      }
+    }
+  }
+}
