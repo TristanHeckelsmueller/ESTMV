@@ -110,5 +110,35 @@
         </form>
     </div>
 </main>
+<script>
+    let topic = document.querySelector('#topic'),
+        purpose = document.querySelector('#purpose'),
+        output = document.querySelector('#output'),
+        url = "/crawl";
+
+    document.querySelector('#cc-submit').addEventListener('click', function () {
+
+        fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json, text-plain, */*",
+                "X-Requested-With": "XMLHttpRequest"
+            },
+            method: "POST",
+            credentials: "same-origin",
+            body: JSON.stringify({
+                topic: topic.options[topic.selectedIndex].value,
+                value: purpose.value,
+                output: output.options[output.selectedIndex].value
+
+            })
+        }).then(e => e.text()).then(e => {
+            search_results.innerHTML = e
+        }).catch(function (e) {
+            // console.log(e)
+        })
+
+    });
+</script>
 </body>
 </html>

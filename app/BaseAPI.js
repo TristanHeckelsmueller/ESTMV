@@ -4,18 +4,15 @@ class BaseApi {
 
     constructor()
     {
-        this.baseURI = 'https://en.wikipedia.org/w/api.php';
-        this.pageURI = 'https://en.wikipedia.org/?curid=';
-    }
+        this.baseURI = 'https://en.wikipedia.org/w/api.php?';
+        this.searchURI = this.baseURI + "action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=";
+        this.pageURI = this.baseURI + "action=query&prop=revisions&rvslots=*&rvprop=content&format=json&pageids=";
 
-    defineSearchParameters ()
-    {
-        return "?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=";
     }
 
     async getSearchResult(query)
     {
-        this.searchURI = this.baseURI + this.defineSearchParameters() + query.value;
+        this.searchURI = this.searchURI + query.value;
 
         this.result = await axios.get(this.searchURI);
 
@@ -31,23 +28,34 @@ class BaseApi {
         {
             this.pageIDs.push(this.array[i].pageid)   ;
         }
+
         return this.pageIDs;
 
     }
 
-    async visitSearchResults(query)
+    async getPageContent(query)
     {
+
         this.pageIDs = await this.getSearchIDs(query);
 
         this.page = [];
-        console.log(this.pageIDs.length)
-        for (let i =0; i < this.pageIDs.length; i++)
+        for (let i = 0; i < 1; i++)
         {
 
-            this.page.push(await axios.get(this.pageURI + this.pageIDs[i]))
+
+            console.log(this.pageURI + this.pageIDs[i]);
+
+            this.pageContent = await axios.get(this.pageURI + this.pageIDs[i]);
+            this.pageObject = Object.values(this.pageContent.data.query);
+
+            // console.log(this.pageObject.pageIDs[i])
+
+
+
         }
 
-            console.log(this.page)
+
+        return this.page;
     }
 
 }

@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/crawl', jsonParser, async function(req, res) {
-  const result = await crawler.visitSearchResults(req.body);
+  const result = await crawler.getPageContent(req.body);
   res.send(result);
 });
 
