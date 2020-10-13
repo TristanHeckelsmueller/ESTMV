@@ -1,14 +1,26 @@
 const express = require('express');
-
-const app = express();
+const bodyParser = require('body-parser');
 const path = require('path');
 
+const app = express();
 const router = express.Router();
 
+
+const BaseAPI = require('./app/BaseAPI');
+
+let crawler = new BaseAPI();
+
+
+let jsonParser = bodyParser.json()
+
+
 router.get('/', function(req, res) {
-  // eslint-disable-next-line no-path-concat
   res.sendFile(path.join(__dirname + '/dist/index.html'));
-  // __dirname : It will resolve to your project folder.
+});
+
+router.post('/crawl', jsonParser, async function(req, res) {
+  const result = await crawler.visitSearchResults(req.body);
+  res.send(result);
 });
 
 // add the router
